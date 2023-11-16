@@ -10,12 +10,9 @@ public class SamuraiAI : EnemyAI
     private int _startPoint = 0;
     private int _endPoint = 1;
 
-    private Animator _animator;
-
     private void Start()
     {
         _point = _startPoint;
-        _animator.GetComponent<Animator>();
     }
 
     protected override void MovementBehavior()
@@ -55,7 +52,7 @@ public class SamuraiAI : EnemyAI
 
             if (_isChasing == false)
             {
-                    Patrol();
+                Patrol();
             }
 
             CheckSides();

@@ -40,8 +40,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3704151995528775648}
-  - component: {fileID: 3704151995528775660}
-  - component: {fileID: 3704151995528775649}
+  - component: {fileID: 3552049984106443192}
+  - component: {fileID: 2948413236649833953}
   - component: {fileID: 3704151995528775651}
   - component: {fileID: 3704151995528775650}
   - component: {fileID: 3704151995528775663}
@@ -69,7 +69,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3704151995528775660
+--- !u!114 &3552049984106443192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,12 +78,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3704151995528775653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5a70a9bce6059242b710aebd901a81e, type: 3}
+  m_Script: {fileID: 11500000, guid: be04a774bba2af84ba75765b52c46728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
   _player: {fileID: 0}
   _attackPoint: {fileID: 3704151994666519897}
   _groundLayerMask:
@@ -94,8 +91,7 @@ MonoBehaviour:
     m_Bits: 256
   _chaseDistance: 4
   _jumpForce: 0.75
-  _isPatrol: 1
---- !u!114 &3704151995528775649
+--- !u!114 &2948413236649833953
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,7 +100,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3704151995528775653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cf2b97dce622df46b2f17609ff442d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 570db16710414d0409fb5a1048aa288d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
@@ -112,7 +108,7 @@ MonoBehaviour:
   _playerCollider: {fileID: 0}
   _speed: 2
   _currentSpeed: 0
-  _damage: 0
+  _damage: 15
   _attackCooldown: 0.6
   _reboundForce: 1500
 --- !u!212 &3704151995528775651

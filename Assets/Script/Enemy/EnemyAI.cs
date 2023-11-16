@@ -35,8 +35,8 @@ public class EnemyAI : MonoBehaviour
     protected Animator _animator;
 
     [Header("AnimationsHash")]
-    protected int _isRunHash = Animator.StringToHash("isRun");
-    protected int _isAttackHash = Animator.StringToHash("isAttack");
+    protected static readonly int _isRunHash = Animator.StringToHash("isRun");
+    protected static readonly int _isAttackHash = Animator.StringToHash("isAttack");
 
 
 
