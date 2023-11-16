@@ -13,6 +13,7 @@ public class SamuraiAI : EnemyAI
     private void Start()
     {
         _point = _startPoint;
+        Patrol();
     }
 
     protected override void MovementBehavior()
@@ -61,7 +62,7 @@ public class SamuraiAI : EnemyAI
             return;
     }
 
-    private void Patrol()
+    protected void Patrol()
     {
         _isRun = true;
         transform.position = Vector3.MoveTowards(transform.position, _patrolPoints[_point].position, _enemy.CurrentSpeed * Time.deltaTime);

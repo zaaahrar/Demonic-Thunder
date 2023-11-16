@@ -1437,7 +1437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -670, y: 191}
+  m_AnchoredPosition: {x: -675, y: 253}
   m_SizeDelta: {x: 629.85, y: 356.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &617684646
@@ -1490,12 +1490,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
+  m_fontSize: 50
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 45
+  m_fontSizeMax: 50
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -3701,7 +3701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -1166, y: 624}
+  m_AnchoredPosition: {x: -1170.7, y: 590.1}
   m_SizeDelta: {x: 307.33, y: 175.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1035429499
@@ -8614,7 +8614,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 514, y: -94.36}
+  m_AnchoredPosition: {x: 521, y: 207}
   m_SizeDelta: {x: 629.85, y: 356.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1938884232
@@ -8668,12 +8668,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
+  m_fontSize: 50
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 45
+  m_fontSizeMax: 50
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -8704,7 +8704,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 11.023895, y: 0, z: 12.861298, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -9044,6 +9044,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 346125242}
     m_Modifications:
+    - target: {fileID: 2948413236649833953, guid: 4a1e6864d86b53d4ababb2e041503d56, type: 3}
+      propertyPath: _playerCollider
+      value: 
+      objectReference: {fileID: 797547978}
+    - target: {fileID: 3552049984106443192, guid: 4a1e6864d86b53d4ababb2e041503d56, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 797547975}
     - target: {fileID: 3704151995528775648, guid: 4a1e6864d86b53d4ababb2e041503d56, type: 3}
       propertyPath: m_RootOrder
       value: 0

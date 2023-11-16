@@ -93,8 +93,6 @@ public class EnemyAI : MonoBehaviour
         _canAttack = true;
     }
 
-
-
     protected void Jump()
     {
         _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
