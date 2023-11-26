@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
@@ -17,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _turnRight = new Vector3(1, 1, 1);
     private Vector3 _turnLeft = new Vector3(-1, 1, 1);
     private float _rayDistance = 0.7f;
+
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
 
@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
     private void CheckGround()
     {
         RaycastHit2D hit = Physics2D.Raycast(_rigidbody2D.position, Vector2.down, _rayDistance, _groundLayerMask);
+
         _isGround = hit.collider != null;
         _animator.SetBool(_isGroundHash, _isGround);
     }

@@ -15,17 +15,17 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] protected LayerMask _playerLayerMask;
     [SerializeField] protected float _chaseDistance;
     [SerializeField] protected float _jumpForce;
+    [SerializeField] protected float _attackRange;
+    [SerializeField] protected float _rayDistance = 0.6f;
 
-    private Collider2D[] _anyColliders;
     protected bool _canAttack = true;
     protected bool _isChasing = false;
     protected bool _isRun = true;
-    protected float _rayDistance = 0.6f;
     protected float _distanceToPoint = 0.2f;
     protected float _stopDistance = 1f;
-    protected int _attackRange = 1;
     protected string _resetAttack = "ResetAttack";
 
+    private Collider2D[] _anyColliders;
     private Vector3 _turnRight = new Vector3(1, 1, 1);
     private Vector3 _turnLeft = new Vector3(-1, 1, 1);
 
@@ -47,14 +47,14 @@ public class EnemyAI : MonoBehaviour
         _enemy = GetComponent<Enemy>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         MovementBehavior();
     }
 
     protected virtual void MovementBehavior() { }
 
-    protected void Attack()
+    protected virtual void Attack()
     {
         _animator.SetTrigger(_isAttackHash);
         _anyColliders = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange);

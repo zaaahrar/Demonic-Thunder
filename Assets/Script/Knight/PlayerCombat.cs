@@ -4,21 +4,22 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(Player))]
 public class PlayerCombat : MonoBehaviour
 {
-    [Header ("Inspector")]
+    [Header("Inspector")]
     [SerializeField] private Transform _attackPoint;
-    [SerializeField] private int _damage;
     [SerializeField] private float _attackCooldown;
     [SerializeField] private bool _canAttack = true;
+    [SerializeField] private float _attackRange = 0.6f;
 
-    private float _attackRange = 0.5f;
     private string _resetAttack = "ResetAttack";
 
     [Header("Componets")]
     private Animator _animator;
     private PlayerMovement _playerMovement;
     private Collider2D[] _enemyes;
+    private Player _player;
 
     [Header("AnimationHash")]
     private int _isAttackHash = Animator.StringToHash("isAttack");
@@ -27,6 +28,7 @@ public class PlayerCombat : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _playerMovement = GetComponent<PlayerMovement>();
+        _player = GetComponent<Player>();
     }
 
     private void Update()
@@ -54,7 +56,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 Vector3 direction = transform.position - _enemy.transform.position;
 
-                _enemy.TakeDamage(_damage, direction.x);
+                _enemy.TakeDamage(_player.Damage, direction.x, _player);
             }
         }
 

@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CapsuleCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class Enemy : MonoBehaviour
 {
-    [Header ("Inspector")]
+    [Header("Inspector")]
+    [SerializeField] protected Weapon Weapon;
     [SerializeField] protected float _maxHealth;
     [SerializeField] protected float _currentHealth;
     [SerializeField] protected Collider2D _playerCollider;
@@ -17,8 +19,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected int _damage;
     [SerializeField] protected float _attackCooldown;
     [SerializeField] protected float _reboundForce;
-
-    protected float _delayDeath = 5;
+    [SerializeField] protected float _delayDeath = 5;
 
     [Header("Components")]
     private Animator _animator;
@@ -28,6 +29,9 @@ public class Enemy : MonoBehaviour
     private int _hurtHash = Animator.StringToHash("Hurt");
     private int _isDeadHash = Animator.StringToHash("isDead");
 
+    public UnityAction<float> ChaingeBossHealthBar;
+
+    public float MaxHealth => _maxHealth;
     public float CurrentHealth => _currentHealth;
     public float CurrentSpeed => _currentSpeed;
     public float AttackCooldown => _attackCooldown;
@@ -44,22 +48,33 @@ public class Enemy : MonoBehaviour
         _currentSpeed = _speed;
     }
 
-    public void TakeDamage(int damage, float direction)
+    public void TakeDamage(int damage, float direction, Player target)
     {
-        _currentHealth -= damage;
-        _animator.SetTrigger(_hurtHash);
-
-        if(direction > 0)
-            _rigidbody2D.AddForce(Vector3.left * _reboundForce);
-
-        if(direction < 0)
-            _rigidbody2D.AddForce(Vector3.right * _reboundForce);
-
-        if (CurrentHealth <= 0)
+        if (!IsDead)
         {
-            Die();
+            _currentHealth -= damage;
+            ChaingeBossHealthBar?.Invoke(_currentHealth);
+            _animator.SetTrigger(_hurtHash);
+
+            if (direction > 0)
+                _rigidbody2D.AddForce(Vector3.left * _reboundForce);
+
+            if (direction < 0)
+                _rigidbody2D.AddForce(Vector3.right * _reboundForce);
+
+            if (CurrentHealth <= 0)
+            {
+                Die();
+                target.AddKill();
+            }
         }
+        else
+            return;
     }
+
+    public virtual void RegeneraionHealth() { }
+
+    protected virtual void DropWeapon() { }
 
     public void StopMovement()
     {
@@ -76,6 +91,7 @@ public class Enemy : MonoBehaviour
         IsDead = true;
         _animator.SetBool(_isDeadHash, true);
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), _playerCollider, true);
+        DropWeapon();
         Destroy(gameObject, _delayDeath);
     }
 }

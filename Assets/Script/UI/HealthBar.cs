@@ -1,31 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+public class HealthBar : Bar
 {
-    [SerializeField] private Slider _sliderHealth;
-    [SerializeField] private Player _player;
-
-    private void Awake()
+    protected override void Start()
     {
-        _sliderHealth.maxValue = _player.MaxHealth;
-        _sliderHealth.value = _player.MaxHealth;
+        Slider.maxValue = Player.MaxHealth;
+        Slider.value = Player.MaxHealth;
     }
 
     private void OnEnable()
     {
-        _player.ChaingeHealthBar += UpdateSliderValue;
+        Player.ChaingeHealthBar += UpdateSliderValue;
     }
 
     private void OnDisable()
     {
-        _player.ChaingeHealthBar -= UpdateSliderValue;
-    }
-
-    private void UpdateSliderValue()
-    {
-        _sliderHealth.value = _player.CurrentHealth;
+        Player.ChaingeHealthBar -= UpdateSliderValue;
     }
 }

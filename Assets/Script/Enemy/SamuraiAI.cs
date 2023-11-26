@@ -6,15 +6,9 @@ public class SamuraiAI : EnemyAI
 {
     [SerializeField] private Transform[] _patrolPoints;
 
-    private int _point;
     private int _startPoint = 0;
     private int _endPoint = 1;
-
-    private void Start()
-    {
-        _point = _startPoint;
-        Patrol();
-    }
+    private int _point = 0; 
 
     protected override void MovementBehavior()
     {

@@ -8,6 +8,6 @@ public class ShopInteraction : Interaction
     protected override void Event()
     {
         _player.OnTaskComplited();
-        _assistant.OpenAssistant("Вы получили меч! Отправляйтесь в правую сторону, там вас ждут приключения.");
+        _assistant.OpenAssistant("Норд направил вас на встречу приключениям! Отправляйтесь в правую сторону.");
     }
 }

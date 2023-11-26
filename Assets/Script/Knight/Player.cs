@@ -7,18 +7,22 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     [Header("Inspector")]
-    [SerializeField] private int _level;
-    [SerializeField] private int _experience;
     [SerializeField] private float _currentHealth;
     [SerializeField] private int _maxHealth;
     [SerializeField] private float _reboundForce;
+    [SerializeField] private int _damage;
+    [SerializeField] private Panel _panelDie;
 
+    private float _killCounter = 0;
     private Rigidbody2D _rigidbody2D;
-    public UnityAction ChaingeHealthBar;
+    public UnityAction<float> ChaingeHealthBar;
+    public UnityAction<float> ChaingeProgressBar;
 
     public bool IsTaskComplited { get; private set; }
+    public float KillCounter => _killCounter;
     public int MaxHealth => _maxHealth;
     public float CurrentHealth => _currentHealth;
+    public int Damage => _damage;
 
     private void Start()
     {
@@ -29,7 +33,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage, float direction)
     {
         _currentHealth -= damage;
-        ChaingeHealthBar?.Invoke();
+        ChaingeHealthBar?.Invoke(CurrentHealth);
 
         if (direction > 0)
             _rigidbody2D.AddForce(Vector3.left * _reboundForce);
@@ -45,7 +49,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        //Вызовется панель смерти.
+        _panelDie.OpenPanel();
     }
 
     public void OnTaskComplited()
@@ -56,5 +60,28 @@ public class Player : MonoBehaviour
     public void OnTaskUpdated()
     {
         IsTaskComplited = false;
+    }
+
+    public void AddKill()
+    {
+        _killCounter++;
+        ChaingeProgressBar?.Invoke(_killCounter);
+    }
+
+    public void AddStrength(int value)
+    {
+        _damage += value;
+    }
+
+    public void RegenerateHealth(int value)
+    {
+        if (_currentHealth + value > _maxHealth)
+        {
+            _currentHealth = _maxHealth;
+        }
+        else
+            _currentHealth += value;
+
+        ChaingeHealthBar?.Invoke(CurrentHealth);
     }
 }
