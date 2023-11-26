@@ -8350,7 +8350,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 5
-      m_TileSpriteIndex: 5
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -8471,12 +8471,12 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 9
     m_Data: {fileID: -1257577697, guid: 4e2ea12cbd9f7de46a01c58b4960a867, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -218746344, guid: 4e2ea12cbd9f7de46a01c58b4960a867, type: 3}
-  - m_RefCount: 2
-    m_Data: {fileID: -1978974505, guid: 4e2ea12cbd9f7de46a01c58b4960a867, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 2
+    m_Data: {fileID: -1978974505, guid: 4e2ea12cbd9f7de46a01c58b4960a867, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -218746344, guid: 4e2ea12cbd9f7de46a01c58b4960a867, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1346809655, guid: 4e2ea12cbd9f7de46a01c58b4960a867, type: 3}
   - m_RefCount: 1
@@ -9525,6 +9525,10 @@ PrefabInstance:
       propertyPath: _panelDie
       value: 
       objectReference: {fileID: 334256057}
+    - target: {fileID: 166115597560022940, guid: 65d319db5cc478240a2dca57661ce764, type: 3}
+      propertyPath: _maxHealth
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65d319db5cc478240a2dca57661ce764, type: 3}
 --- !u!1 &811709277

@@ -7,14 +7,14 @@ public class SceneTransition : MonoBehaviour
 {
     [SerializeField] private int _numberScene;
     [SerializeField] private Panel _panelWin;
-    private int finalScene = 3;
+    [SerializeField] private bool isFinalScen = false;
 
     public int NumberScene => _numberScene;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.TryGetComponent<Player>(out Player player) && player.IsTaskComplited)
         {
-            if(_numberScene == finalScene)
+            if(isFinalScen)
             {
                 _panelWin.OpenPanel();
             }
